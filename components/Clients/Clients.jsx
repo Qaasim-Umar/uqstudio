@@ -7,38 +7,34 @@ import ClientSlider from './ClientSlider';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Slide } from 'react-awesome-reveal';
 
-let clients = [
+const clients = [
     {
-        name: "John Michel",
-        position: "web developer",
-        img_url: "https://t4.ftcdn.net/jpg/02/90/27/39/360_F_290273933_ukYZjDv8nqgpOBcBUo5CQyFcxAzYlZRW.jpg",
-        stars: 3,
-        disc: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-        Temporibus consequuntur dolores labore natus similique nemo doloribus cum accusantium adipisci maiores.`
-    },
-    {
-        name: "John Michel",
-        position: "web developer",
-        img_url: "https://t4.ftcdn.net/jpg/02/90/27/39/360_F_290273933_ukYZjDv8nqgpOBcBUo5CQyFcxAzYlZRW.jpg",
-        stars: 4,
-        disc: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-        Temporibus consequuntur dolores labore natus similique nemo doloribus cum accusantium adipisci maiores.`
-    },
-    {
-        name: "John Michel",
-        position: "web developer",
-        img_url: "https://t4.ftcdn.net/jpg/02/90/27/39/360_F_290273933_ukYZjDv8nqgpOBcBUo5CQyFcxAzYlZRW.jpg",
+        name: "Scholaris Team",
+        position: "Founder, Scholaris",
+        img_url: "https://ui-avatars.com/api/?name=Scholaris&background=01be96&color=fff&size=128",
         stars: 5,
-        disc: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-        Temporibus consequuntur dolores labore natus similique nemo doloribus cum accusantium adipisci maiores.`
+        disc: `UQ Studio built our school management platform from the ground up. The mobile-first design, CBT exam flow, and admin tools work reliably for our team every day.`
     },
     {
-        name: "John Michel",
-        position: "web developer",
-        img_url: "https://t4.ftcdn.net/jpg/02/90/27/39/360_F_290273933_ukYZjDv8nqgpOBcBUo5CQyFcxAzYlZRW.jpg",
+        name: "Qudus Hameed",
+        position: "Founder, EcomWords Lab",
+        img_url: "https://ui-avatars.com/api/?name=Qudus+Hameed&background=01be96&color=fff&size=128",
         stars: 5,
-        disc: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-        Temporibus consequuntur dolores labore natus similique nemo doloribus cum accusantium adipisci maiores.`
+        disc: `They captured our brand voice and delivered a conversion-focused site that looks professional and loads fast. It has helped us attract the right e-commerce clients.`
+    },
+    {
+        name: "Abdullahi Qaasim",
+        position: "Founder, Al Baahith Academy",
+        img_url: "https://ui-avatars.com/api/?name=Abdullahi+Qaasim&background=01be96&color=fff&size=128",
+        stars: 5,
+        disc: `Our academy needed a trustworthy online presence for Quran and Arabic classes. UQ Studio created a clean, easy-to-navigate site that helps parents enroll with confidence.`
+    },
+    {
+        name: "Omar Qm",
+        position: "Co-founder, Assessly",
+        img_url: "https://ui-avatars.com/api/?name=Omar+Qm&background=01be96&color=fff&size=128",
+        stars: 5,
+        disc: `From concept to launch, the team delivered a polished AI exam platform with a smooth student experience. The build is scalable and ready for us to grow.`
     },
 ]
 var settings = {
