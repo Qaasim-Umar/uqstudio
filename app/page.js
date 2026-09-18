@@ -27,15 +27,18 @@ export default function Home() {
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  background: var(--bg-main);
+  color: var(--text-primary);
+`;
 const Banner = styled.div`
   position: relative;
   overflow: hidden;
   background:
     radial-gradient(circle at 78% 35%, rgba(1, 190, 150, 0.08), transparent 28%),
-    linear-gradient(159deg, rgb(45, 45, 58) 0%, rgb(38, 38, 49) 100%);
+    var(--page-gradient);
 `;
 
 const LightColor = styled.div`
-  background: linear-gradient(159deg, rgb(45, 45, 58) 0%, rgb(43, 43, 53) 100%);
+  background: var(--page-gradient);
 `;

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import {
   FiArrowUpRight,
   FiCode,
+  FiLayout,
   FiPenTool,
   FiRefreshCw,
   FiSmartphone,
@@ -14,18 +15,30 @@ import Card from "./Card";
 const services = [
   {
     number: "01",
+    Icon: FiLayout,
+    title: "UI/UX Design",
+    description:
+      "Thoughtful product experiences that make complex ideas feel clear, intuitive and easy to use.",
+    capabilities: [
+      "Product strategy and user journeys",
+      "Wireframes and interactive prototypes",
+      "Design systems and usability testing",
+    ],
+  },
+  {
+    number: "02",
     Icon: FiPenTool,
     title: "Web Design",
     description:
       "Clear, conversion-focused interfaces shaped around your brand, customers and business goals.",
     capabilities: [
-      "UX strategy and user flows",
-      "Responsive interface design",
-      "Design systems and prototypes",
+      "Conversion-focused page strategy",
+      "Responsive website design",
+      "Visual identity and interaction direction",
     ],
   },
   {
-    number: "02",
+    number: "03",
     Icon: FiCode,
     title: "Web Development",
     description:
@@ -37,7 +50,7 @@ const services = [
     ],
   },
   {
-    number: "03",
+    number: "04",
     Icon: FiSmartphone,
     title: "Mobile App Development",
     description:
@@ -49,7 +62,7 @@ const services = [
     ],
   },
   {
-    number: "04",
+    number: "05",
     Icon: FiRefreshCw,
     title: "Product Support",
     description:
@@ -70,7 +83,7 @@ const Services = () => {
           <HeadingGroup>
             <Eyebrow><span aria-hidden="true" /> What we do</Eyebrow>
             <h2 id="services-title">
-              From idea to a <em>dependable digital product.</em>
+              From idea to a <span className="accent">dependable digital product.</span>
             </h2>
           </HeadingGroup>
 
@@ -99,7 +112,8 @@ export default Services;
 
 const Section = styled.section`
   scroll-margin-top: 76px;
-  background: #191923;
+  background: var(--bg-services);
+  color: var(--services-text);
 `;
 
 const Container = styled.div`
@@ -109,6 +123,7 @@ const Container = styled.div`
 
   @media (max-width: 520px) {
     width: min(92%, 1180px);
+    padding: 4rem 0;
   }
 `;
 
@@ -128,17 +143,16 @@ const HeadingGroup = styled.div`
   h2 {
     max-width: 720px;
     margin-top: 1rem;
-    color: #fff;
-    font-family: "Secular One", sans-serif;
+    color: var(--services-text);
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(2.35rem, 4.6vw, 4.2rem);
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: -0.04em;
     line-height: 1.03;
   }
 
-  h2 em {
-    color: #01be96;
-    font-style: normal;
+  h2 .accent {
+    color: var(--services-text);
   }
 `;
 
@@ -146,7 +160,7 @@ const Eyebrow = styled.p`
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  color: #c9c9d2;
+  color: var(--services-muted);
   font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -155,7 +169,7 @@ const Eyebrow = styled.p`
   span {
     width: 28px;
     height: 2px;
-    background: #01be96;
+    background: var(--services-text);
   }
 `;
 
@@ -164,7 +178,7 @@ const Intro = styled.div`
   gap: 1.25rem;
 
   p {
-    color: #aaaab5;
+    color: var(--services-muted);
     font-size: 0.98rem;
     line-height: 1.75;
   }
@@ -175,7 +189,7 @@ const Intro = styled.div`
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #01be96;
+    color: var(--services-text);
     text-decoration: none;
     font-size: 0.88rem;
     font-weight: 700;
@@ -199,10 +213,36 @@ const Intro = styled.div`
 const Cards = styled.div`
   margin-top: clamp(3rem, 6vw, 5rem);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1rem;
+
+  > article {
+    grid-column: span 2;
+  }
+
+  > article:nth-last-child(-n + 2) {
+    grid-column: span 3;
+  }
+
+  @media (max-width: 980px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    > article,
+    > article:nth-last-child(-n + 2) {
+      grid-column: span 1;
+    }
+
+    > article:last-child {
+      grid-column: 1 / -1;
+    }
+  }
 
   @media (max-width: 720px) {
     grid-template-columns: 1fr;
+
+    > article,
+    > article:last-child {
+      grid-column: span 1;
+    }
   }
 `;

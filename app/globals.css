@@ -1,11 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?&family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -16,19 +15,85 @@ body {
 }
 
 :root {
-  --lighter: linear-gradient(159deg, rgb(45, 45, 58) 0%, rgb(43, 43, 53) 100%);
-  ---background: #191923;
+  color-scheme: dark;
+  --bg-main: #191923;
+  --bg-deep: #15151e;
+  --bg-section: #20202a;
+  --bg-services: #191923;
+  --bg-work: #15151e;
+  --bg-contact: #20202a;
+  --bg-cta: #20202a;
+  --cta-border: rgba(94, 228, 198, 0.45);
+  --services-text: #ffffff;
+  --services-muted: #c3c3cd;
+  --services-border: rgba(255, 255, 255, 0.09);
+  --contact-text: #ffffff;
+  --contact-muted: #c3c3cd;
+  --contact-accent: #5ee4c6;
+  --bg-elevated: #252530;
+  --bg-soft: #2d2d3a;
+  --bg-input: rgba(255, 255, 255, 0.035);
+  --nav-bg: rgba(25, 25, 35, 0.88);
+  --text-primary: #ffffff;
+  --text-secondary: #c3c3cd;
+  --text-muted: #92929f;
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --surface-tint: rgba(255, 255, 255, 0.035);
+  --card-gradient: linear-gradient(145deg, #2d2d3a, #262631);
+  --page-gradient: linear-gradient(159deg, #2d2d3a 0%, #262631 100%);
+  --shadow: rgba(0, 0, 0, 0.32);
+  --accent: #01be96;
+  --accent-soft: #5ee4c6;
+  --on-accent: #10151a;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg-main: #f6f8f7;
+  --bg-deep: #eef3f1;
+  --bg-section: #ffffff;
+  --bg-services: #008c70;
+  --bg-work: #ffffff;
+  --bg-contact: #075746;
+  --bg-cta: #dff4ec;
+  --cta-border: #006b56;
+  --services-text: #ffffff;
+  --services-muted: rgba(255, 255, 255, 0.82);
+  --services-border: rgba(255, 255, 255, 0.24);
+  --contact-text: #ffffff;
+  --contact-muted: rgba(255, 255, 255, 0.78);
+  --contact-accent: #8fe4d0;
+  --bg-elevated: #ffffff;
+  --bg-soft: #edf2f0;
+  --bg-input: #f5f7f6;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --text-primary: #16171d;
+  --text-secondary: #4e5260;
+  --text-muted: #6d7280;
+  --border: rgba(22, 23, 29, 0.11);
+  --border-strong: rgba(22, 23, 29, 0.19);
+  --surface-tint: rgba(22, 23, 29, 0.035);
+  --card-gradient: linear-gradient(145deg, #ffffff, #f1f5f3);
+  --page-gradient: linear-gradient(159deg, #ffffff 0%, #f1f5f3 100%);
+  --shadow: rgba(30, 42, 38, 0.14);
+  --accent: #008c70;
+  --accent-soft: #007c65;
+  --on-accent: #ffffff;
 }
 
 body {
   width: 100%;
-  background-color: var(---background);
-  color: #fff;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
   position: relative;
+  font-family: "Montserrat", sans-serif;
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
 .green {
-  color: #01be96;
+  color: var(--accent);
 }
 
 .slick-list,

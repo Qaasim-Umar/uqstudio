@@ -5,20 +5,20 @@ import Image from "next/image";
 import styled from "styled-components";
 import { FiArrowRight, FiCheck, FiSmartphone } from "react-icons/fi";
 import scholaris from "../images/scholaris.png";
-import nahdiHome from "../images/nahdi-home.webp";
+import whiteNoise from "../images/mobile-white-noise.jpg";
 
 const ProfComponent = () => {
   return (
     <Hero id="home">
       <Copy>
-        <Eyebrow><span aria-hidden="true" /> Web &amp; mobile product studio</Eyebrow>
+        <Eyebrow><span aria-hidden="true" /> UI/UX, web &amp; mobile product studio</Eyebrow>
         <h1>
-          Digital products built to <em>perform at real-world scale.</em>
+          Digital products built to <span className="accent">perform at real-world scale.</span>
         </h1>
         <Lead>
-          We design and develop conversion-focused websites and reliable mobile
-          applications for growing businesses—from first idea to launch and
-          ongoing support.
+          We design intuitive product experiences and build conversion-focused
+          websites and reliable mobile applications—from first idea to launch
+          and ongoing support.
         </Lead>
 
         <Actions>
@@ -60,8 +60,8 @@ const ProfComponent = () => {
           <PhoneTop aria-hidden="true" />
           <PhoneScreen>
             <Image
-              src={nahdiHome}
-              alt="Nahdi mobile commerce application home screen"
+              src={whiteNoise}
+              alt="White Noise private messaging application screen"
               fill
               priority
               sizes="180px"
@@ -110,15 +110,20 @@ const Copy = styled.div`
   h1 {
     max-width: 760px;
     margin-top: 1.2rem;
-    color: #fff;
-    font-family: "Secular One", sans-serif;
+    color: var(--text-primary);
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(2.75rem, 5.4vw, 5rem);
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: -0.045em;
     line-height: 0.98;
   }
 
-  h1 em { color: #01be96; font-style: normal; }
+  h1 .accent {
+    color: var(--accent);
+    font-family: inherit;
+    font-weight: inherit;
+    letter-spacing: -0.06em;
+  }
 
   @media (max-width: 520px) {
     h1 { font-size: clamp(2.5rem, 12vw, 3.5rem); line-height: 1; }
@@ -129,19 +134,19 @@ const Eyebrow = styled.p`
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  color: #c9c9d2;
+  color: var(--text-secondary);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 
-  span { width: 28px; height: 2px; background: #01be96; }
+  span { width: 28px; height: 2px; background: var(--accent); }
 `;
 
 const Lead = styled.p`
   max-width: 640px;
   margin-top: 1.6rem;
-  color: #c3c3cd;
+  color: var(--text-secondary);
   font-size: clamp(1rem, 1.4vw, 1.12rem);
   line-height: 1.75;
 `;
@@ -173,34 +178,34 @@ const ActionBase = styled.a`
 `;
 
 const PrimaryAction = styled(ActionBase)`
-  color: #10151a;
-  background: #01be96;
+  color: var(--on-accent);
+  background: var(--accent);
   &:hover { background: #13d4ab; }
 `;
 
 const SecondaryAction = styled(ActionBase)`
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #fff;
-  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  background: var(--surface-tint);
   &:hover { border-color: rgba(1, 190, 150, 0.65); background: rgba(1, 190, 150, 0.08); }
 `;
 
 const Proof = styled.div`
   margin-top: 2.4rem;
   padding-top: 1.35rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.55rem, 2vw, 1.5rem);
+  border-top: 1px solid var(--border);
 `;
 
 const ProofItem = styled.div`
-  min-width: 110px;
+  min-width: 0;
   display: grid;
   gap: 0.25rem;
 
-  strong { color: #fff; font-size: 1rem; font-weight: 700; }
-  span { color: #92929f; font-size: 0.72rem; line-height: 1.35; }
+  strong { color: var(--text-primary); font-size: clamp(.78rem, 2.8vw, 1rem); font-weight: 700; white-space: nowrap; }
+  span { color: var(--text-muted); font-size: clamp(.58rem, 2vw, .72rem); line-height: 1.35; }
 `;
 
 const Showcase = styled.div`
@@ -233,10 +238,10 @@ const BrowserCard = styled.div`
   right: 0;
   width: 88%;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-strong);
   border-radius: 18px;
-  background: #20202b;
-  box-shadow: 0 34px 80px rgba(0, 0, 0, 0.38);
+  background: var(--bg-elevated);
+  box-shadow: 0 34px 80px var(--shadow);
   transform: rotate(1.5deg);
 
   @media (max-width: 520px) { top: 5%; width: 94%; }
@@ -248,10 +253,10 @@ const BrowserBar = styled.div`
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  background: #2a2a37;
+  background: var(--bg-soft);
 
-  i { width: 7px; height: 7px; border-radius: 999px; background: #5e5e6b; }
-  span { margin-left: 0.35rem; color: #8f8f9c; font-size: 0.62rem; }
+  i { width: 7px; height: 7px; border-radius: 999px; background: var(--text-muted); }
+  span { margin-left: 0.35rem; color: var(--text-muted); font-size: 0.62rem; }
 `;
 
 const BrowserImage = styled.div`
@@ -271,7 +276,7 @@ const ProductLabel = styled.div`
   gap: 1rem;
 
   span { display: inline-flex; align-items: center; gap: 0.35rem; color: #8fe4d0; font-size: 0.68rem; }
-  strong { color: #fff; font-size: 0.82rem; }
+  strong { color: var(--text-primary); font-size: 0.82rem; }
 `;
 
 const PhoneCard = styled.div`
@@ -328,13 +333,13 @@ const ScaleBadge = styled.div`
   gap: 0.7rem;
   border: 1px solid rgba(1, 190, 150, 0.28);
   border-radius: 14px;
-  color: #01be96;
-  background: rgba(31, 31, 43, 0.94);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
+  color: var(--accent);
+  background: var(--bg-elevated);
+  box-shadow: 0 18px 45px var(--shadow);
 
   > svg { flex: 0 0 auto; font-size: 1.3rem; }
-  span { display: grid; gap: 0.15rem; color: #9696a3; font-size: 0.64rem; }
-  strong { color: #fff; font-size: 0.82rem; }
+  span { display: grid; gap: 0.15rem; color: var(--text-muted); font-size: 0.64rem; }
+  strong { color: var(--text-primary); font-size: 0.82rem; }
 
   @media (max-width: 520px) {
     right: 0;

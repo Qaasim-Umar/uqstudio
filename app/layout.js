@@ -57,15 +57,20 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#000000",
+  themeColor: "#191923",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('uq-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.dataset.theme=t}catch(e){}})();`,
+          }}
+        />
         {/* react-slick css */}
         <link
           rel="stylesheet"

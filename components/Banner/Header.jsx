@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { GiCandleFlame } from "react-icons/gi";
-import { FiArrowUpRight } from "react-icons/fi";
+import { FiArrowUpRight, FiMoon, FiSun } from "react-icons/fi";
 
 const navItems = [
   { label: "Services", href: "#service" },
@@ -13,7 +13,23 @@ const navItems = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState("dark");
   const closeMenu = () => setIsOpen(false);
+
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem("uq-theme");
+    const preferredTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    const activeTheme = savedTheme || preferredTheme;
+    setTheme(activeTheme);
+    document.documentElement.dataset.theme = activeTheme;
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    document.documentElement.dataset.theme = nextTheme;
+    window.localStorage.setItem("uq-theme", nextTheme);
+  };
 
   return (
     <HeaderShell>
@@ -22,7 +38,7 @@ const Header = () => {
           <LogoMark aria-hidden="true"><GiCandleFlame /></LogoMark>
           <LogoText>
             <strong>UQ Studio</strong>
-            <span>Web &amp; mobile products</span>
+            <span>Digital product studio</span>
           </LogoText>
         </Logo>
 
@@ -39,18 +55,29 @@ const Header = () => {
           </MobileCta>
         </Nav>
 
-        <DesktopCta href="#footer">
-          Start a project <FiArrowUpRight aria-hidden="true" />
-        </DesktopCta>
+        <HeaderActions>
+          <ThemeButton
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            {theme === "dark" ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
+          </ThemeButton>
 
-        <MenuButton
-          type="button"
-          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((open) => !open)}
-        >
-          <span /><span /><span />
-        </MenuButton>
+          <DesktopCta href="#footer">
+            Start a project <FiArrowUpRight aria-hidden="true" />
+          </DesktopCta>
+
+          <MenuButton
+            type="button"
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen((open) => !open)}
+          >
+            <span /><span /><span />
+          </MenuButton>
+        </HeaderActions>
       </Container>
     </HeaderShell>
   );
@@ -62,8 +89,8 @@ const HeaderShell = styled.header`
   position: fixed;
   inset: 0 0 auto;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(25, 25, 35, 0.88);
+  border-bottom: 1px solid var(--border);
+  background: var(--nav-bg);
   backdrop-filter: blur(18px);
 `;
 
@@ -78,7 +105,7 @@ const Container = styled.div`
 `;
 
 const Logo = styled.a`
-  color: #fff;
+  color: var(--text-primary);
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -99,7 +126,7 @@ const LogoMark = styled.span`
   place-items: center;
   border: 1px solid rgba(1, 190, 150, 0.45);
   border-radius: 12px;
-  color: #01be96;
+  color: var(--accent);
   background: rgba(1, 190, 150, 0.1);
   font-size: 1.45rem;
 `;
@@ -109,7 +136,7 @@ const LogoText = styled.span`
   gap: 0.12rem;
 
   strong { font-size: 1rem; line-height: 1.2; letter-spacing: -0.01em; }
-  span { color: #a8a8b3; font-size: 0.68rem; letter-spacing: 0.04em; }
+  span { color: var(--text-muted); font-size: 0.68rem; letter-spacing: 0.04em; }
 
   @media (max-width: 420px) {
     span { display: none; }
@@ -129,10 +156,10 @@ const Nav = styled.nav`
     visibility: ${({ $isOpen }) => ($isOpen ? "visible" : "hidden")};
     opacity: ${({ $isOpen }) => ($isOpen ? "1" : "0")};
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
     border-radius: 16px;
-    background: #242431;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    background: var(--bg-elevated);
+    box-shadow: 0 24px 60px var(--shadow);
     transform: translateY(${({ $isOpen }) => ($isOpen ? "0" : "-8px")});
     transition: opacity 220ms ease, transform 220ms ease, max-height 220ms ease,
       padding 220ms ease, visibility 220ms ease;
@@ -146,14 +173,14 @@ const NavList = styled.ul`
   list-style: none;
 
   a {
-    color: #d7d7df;
+    color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
     transition: color 180ms ease;
   }
 
-  a:hover, a:focus-visible { color: #01be96; }
+  a:hover, a:focus-visible { color: var(--accent); }
   a:focus-visible { outline: 2px solid rgba(1, 190, 150, 0.55); outline-offset: 5px; border-radius: 4px; }
 
   @media (max-width: 760px) {
@@ -181,8 +208,8 @@ const DesktopCta = styled.a`
   justify-content: center;
   gap: 0.45rem;
   border-radius: 10px;
-  color: #10151a;
-  background: #01be96;
+  color: var(--on-accent);
+  background: var(--accent);
   text-decoration: none;
   font-size: 0.86rem;
   font-weight: 700;
@@ -199,6 +226,29 @@ const MobileCta = styled(DesktopCta)`
   @media (max-width: 760px) { display: inline-flex; width: 100%; min-height: 48px; }
 `;
 
+const HeaderActions = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+`;
+
+const ThemeButton = styled.button`
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--surface-tint);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 1.05rem;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+
+  &:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+  &:focus-visible { outline: 3px solid rgba(1, 190, 150, 0.42); outline-offset: 3px; }
+`;
+
 const MenuButton = styled.button`
   width: 48px;
   height: 48px;
@@ -206,10 +256,10 @@ const MenuButton = styled.button`
   place-items: center;
   align-content: center;
   gap: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-strong);
   border-radius: 10px;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  background: var(--surface-tint);
   cursor: pointer;
 
   span {

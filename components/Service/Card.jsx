@@ -36,11 +36,11 @@ const Container = styled.article`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--border);
   border-radius: 18px;
   background:
     radial-gradient(circle at 92% 8%, rgba(1, 190, 150, 0.09), transparent 30%),
-    linear-gradient(145deg, #2d2d3a, #262631);
+    var(--card-gradient);
   transition: transform 220ms ease, border-color 220ms ease,
     box-shadow 220ms ease;
 
@@ -49,7 +49,7 @@ const Container = styled.article`
     position: absolute;
     inset: auto 0 0;
     height: 3px;
-    background: #01be96;
+    background: var(--accent);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 220ms ease;
@@ -57,7 +57,7 @@ const Container = styled.article`
 
   &:hover {
     border-color: rgba(1, 190, 150, 0.36);
-    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 24px 55px var(--shadow);
     transform: translateY(-5px);
   }
 
@@ -67,7 +67,7 @@ const Container = styled.article`
 
   h3 {
     margin-top: 2rem;
-    color: #fff;
+    color: var(--text-primary);
     font-size: clamp(1.35rem, 2vw, 1.65rem);
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -98,13 +98,13 @@ const IconWrap = styled.span`
   place-items: center;
   border: 1px solid rgba(1, 190, 150, 0.32);
   border-radius: 14px;
-  color: #01be96;
+  color: var(--accent);
   background: rgba(1, 190, 150, 0.08);
   font-size: 1.35rem;
 `;
 
 const Number = styled.span`
-  color: rgba(255, 255, 255, 0.24);
+  color: var(--text-muted);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -113,7 +113,7 @@ const Number = styled.span`
 const Description = styled.p`
   max-width: 540px;
   margin-top: 0.85rem;
-  color: #b8b8c2;
+  color: var(--text-secondary);
   font-size: 0.9rem;
   line-height: 1.7;
 `;
@@ -129,14 +129,14 @@ const CapabilityList = styled.ul`
     display: flex;
     align-items: center;
     gap: 0.65rem;
-    color: #dadade;
+    color: var(--text-secondary);
     font-size: 0.8rem;
     line-height: 1.4;
   }
 
   svg {
     flex: 0 0 auto;
-    color: #01be96;
+    color: var(--accent);
     font-size: 0.9rem;
   }
 `;
