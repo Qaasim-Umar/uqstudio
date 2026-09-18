@@ -29,12 +29,11 @@ export default function Home() {
 
 const Container = styled.div``;
 const Banner = styled.div`
-  background: linear-gradient(159deg, rgb(45, 45, 58) 0%, rgb(43, 43, 53) 100%);
-  height: 100vh;
-  @media (max-width: 640px) {
-    height: 100%;
-    padding-bottom: 2rem;
-  }
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 35%, rgba(1, 190, 150, 0.08), transparent 28%),
+    linear-gradient(159deg, rgb(45, 45, 58) 0%, rgb(38, 38, 49) 100%);
 `;
 
 const LightColor = styled.div`

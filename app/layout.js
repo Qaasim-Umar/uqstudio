@@ -7,11 +7,11 @@ const siteUrl = "https://uqstudio.site";
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "UQ Studio | Web Design & Development Agency",
+    default: "UQ Studio | Web & Mobile Product Studio",
     template: "%s | UQ Studio",
   },
   description:
-    "UQ Studio is a web design and development agency building exceptional digital experiences with React, Next.js and Tailwind CSS for businesses worldwide.",
+    "UQ Studio designs and develops conversion-focused websites and reliable mobile applications for growing businesses.",
   keywords: [
     "UQ Studio",
     "Web Development Agency",
@@ -25,9 +25,9 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "UQ Studio | Web Design & Development Agency",
+    title: "UQ Studio | Web & Mobile Product Studio",
     description:
-      "Web design and development agency specializing in building exceptional digital experiences with React, Next.js and Tailwind CSS.",
+      "Conversion-focused websites and reliable mobile applications built for growing businesses.",
     siteName: "UQ Studio",
     images: [
       {
@@ -40,9 +40,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "UQ Studio | Web Design & Development Agency",
+    title: "UQ Studio | Web & Mobile Product Studio",
     description:
-      "Web design and development agency specializing in building exceptional digital experiences with React, Next.js and Tailwind CSS.",
+      "Conversion-focused websites and reliable mobile applications built for growing businesses.",
     creator: "@i_codejs",
     images: ["/og-image.png"],
   },

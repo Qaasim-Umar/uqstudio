@@ -9,9 +9,6 @@ import scholaris from '../images/scholaris.png'
 import ecomwordslab from '../images/ecom.png'
 import albaahith from '../images/baahith.png'
 import kingsmeal from '../images/kingsmeal.png'
-import piggyvest from '../images/piggyvest.png'
-import metabnb from '../images/metabnb.png'
-import gallery from '../images/gallery.png'
 
 const projectData = [
   {
@@ -43,32 +40,11 @@ const projectData = [
     stacks: "Next.js, Tailwind CSS, Supabase"
   },
   {
-    img: piggyvest,
-    title: "Piggyvest Clone",
-    disc: "A direct clone of the popular Piggyvest Bank platform, replicating its core features and user interface.",
-    demo: "https://piggyvest-bella.netlify.app",
-    stacks: "React, CSS Modules, Sass"
-  },
-  {
     img: kingsmeal,
     title: "KingsMeal Restaurant",
     disc: "A restaurant web application featuring order management, shopping cart functionality, and a streamlined checkout process.",
     demo: "https://kingsmeal.netlify.app",
     stacks: "React, Tailwind CSS"
-  },
-  {
-    img: metabnb,
-    title: "MetaBnB",
-    disc: "A hotel booking website concept that leverages NFT technology for transactions and reservations.",
-    demo: "https://metabnbnft.netlify.app",
-    stacks: "React, CSS"
-  },
-  {
-    img: gallery,
-    title: "Drag & Drop Gallery",
-    disc: "An interactive gallery application that allows users to rearrange and organize images through drag-and-drop functionality.",
-    demo: "https://hng-x3galleryapp.netlify.app",
-    stacks: "React, CSS"
   }
 ];
 
